@@ -24,23 +24,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
-          {/* Column 1 - Brand Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-green-700 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">TC</span>
-              </div>
-              <div className="ml-3">
-                <span className="text-2xl font-bold text-green-700">Trueworld</span>
-                <span className="text-2xl font-light text-amber-800 ml-1">Care</span>
-              </div>
+              <img src="/image/logo.png" alt="TrueWorld Logo" className="h-10 md:h-14 w-auto" />
             </div>
             
             <p className="text-gray-700 mb-6 leading-relaxed">
               Your trusted partner in holistic wellness. We believe in the power of nature and ancient Ayurvedic wisdom to transform lives through authentic, certified health solutions.
             </p>
             
-            {/* Social Media Links */}
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-green-100 hover:bg-green-600 text-green-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -70,7 +62,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2 - Quick Links */}
           <div>
             <h3 className="text-gray-800 font-bold text-lg mb-4 flex items-center">
               <span className="w-1 h-6 bg-green-600 mr-2 rounded"></span>
@@ -104,7 +95,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 - Products */}
           <div>
             <h3 className="text-gray-800 font-bold text-lg mb-4 flex items-center">
               <span className="w-1 h-6 bg-amber-600 mr-2 rounded"></span>
@@ -138,7 +128,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 - Contact Info */}
           <div>
             <h3 className="text-gray-800 font-bold text-lg mb-4 flex items-center">
               <span className="w-1 h-6 bg-green-600 mr-2 rounded"></span>
@@ -174,7 +163,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Newsletter Section */}
         <div className="mt-12 pt-8 border-t border-green-200">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-gray-800 font-bold text-xl mb-2">Subscribe to Our Newsletter</h3>
@@ -197,8 +185,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        {/* Certifications & Trust Badges */}
         <div className="mt-8 pt-8 border-t border-amber-200">
           <div className="flex flex-wrap justify-center items-center gap-6">
             <div className="flex items-center gap-2 bg-white border-2 border-green-200 px-4 py-2 rounded-lg shadow-sm">
@@ -225,7 +211,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="bg-gradient-to-r from-green-600 to-green-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -250,8 +235,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 bg-gradient-to-r from-green-600 to-green-700 text-white w-12 h-12 rounded-full shadow-2xl hover:from-green-700 hover:to-green-800 transition-all duration-200 flex items-center justify-center z-50 hover:scale-110"

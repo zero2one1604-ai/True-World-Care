@@ -3,200 +3,201 @@
 import { useState } from 'react';
 
 export default function ProductsSection() {
-  const [activeProduct, setActiveProduct] = useState(0);
+  const [hoveredProduct, setHoveredProduct] = useState(null);
 
   const products = [
     {
       id: 1,
       name: "True Vita Capsules",
       tagline: "Energize & Detoxify Naturally",
-      description: "True Vita has been designed with the powerful ayurvedic blend which energizes the body, enhances metabolism, and strengthens immunity – which overall helps to detox your body from within. The ingredients like aloe vera, amla, jamun and draksha each of our capsules give support to your wellness journey with nature's finest ingredients.",
+      description: "True Vita has been designed with the powerful ayurvedic blend which energizes the body, enhances metabolism, and strengthens immunity – which overall helps to detox your body from within.",
       benefits: [
         { icon: "✅", text: "Increases Energy" },
         { icon: "🔥", text: "Enhances Metabolism" },
         { icon: "🛡️", text: "Boosts Immune System" },
-        { icon: "🌱", text: "Removes Toxins from the Body" }
+        { icon: "🌱", text: "Removes Toxins" }
       ],
-      details: "60 capsules per box | Ayurvedic Proprietary Medicine",
-      dosage: "As directed by the physician",
+      details: "60 capsules per box",
+      dosage: "As directed by physician",
       caution: "Not recommended during pregnancy",
-      certification: "GMP & ISO Certified | Chemical-Free",
-      gradient: "from-green-500 to-green-600"
+      image: "/image/products/true.webp",
+      accent: "from-emerald-500 to-teal-600"
     },
     {
       id: 2,
       name: "SHAPELLA Capsule",
       tagline: "Your Fitness Commitment",
-      description: "Shapella is not just a weight loss capsule - it is a commitment towards your fitness goals. Formulated with ingredients Garcinia Indica, Coffee Bean Extract, Coleus Forskohlii, and Trikatu, the mixture of all these ingredients works as a powerhouse to manage cravings, boost metabolism and elevate energy levels naturally.",
+      description: "Shapella is not just a weight loss capsule - it is a commitment towards your fitness goals. Formulated to manage cravings, boost metabolism and elevate energy levels naturally.",
       benefits: [
-        { icon: "🌿", text: "Detoxifies the Body" },
+        { icon: "🌿", text: "Detoxifies Body" },
         { icon: "🛡️", text: "Strengthens Immunity" },
         { icon: "🔥", text: "Accelerates Metabolism" },
         { icon: "⚡", text: "Elevates Energy" }
       ],
-      details: "60 capsules per box | Ayurvedic Herbal Formula",
-      dosage: "As directed by the physician",
+      details: "60 capsules per box",
+      dosage: "As directed by physician",
       caution: "Not recommended during pregnancy",
-      certification: "Supports steady, sustainable progress",
-      gradient: "from-amber-600 to-amber-700"
+      image: "/image/products/shapela.webp",
+      accent: "from-amber-500 to-orange-600"
     },
     {
       id: 3,
       name: "EASY FRESH Herbal Powder",
       tagline: "Cleanse & Restore Balance",
-      description: "Easy Fresh has been designed specifically to cleanse your system and restore balance as it is a 100% natural herbal powder. Ingredients include Zeera, Saunf, Anardana, Mulethi and Gulab Phool, the blend of these ingredients supports your body to improve digestion, reduces bloating and helps to flush out the toxins without any side effects.",
+      description: "Easy Fresh has been designed specifically to cleanse your system and restore balance as it is a 100% natural herbal powder. Supports digestion, reduces bloating and helps flush out toxins.",
       benefits: [
-        { icon: "🌱", text: "Removes Toxins from the Body" },
+        { icon: "🌱", text: "Removes Toxins" },
         { icon: "✅", text: "Pure & Natural" },
         { icon: "🚫", text: "No Side Effects" }
       ],
-      details: "Net Weight: 100g | Herbal Detox Formula",
-      dosage: "As directed by the physician",
+      details: "Net Weight: 100g",
+      dosage: "As directed by physician",
       caution: "Not recommended during pregnancy",
-      certification: "Perfect for seasonal reset or daily use",
-      gradient: "from-green-600 to-teal-600"
+      image: "/image/products/easy.webp",
+      accent: "from-green-500 to-emerald-600"
     }
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white via-green-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+      
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-200 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-200 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto">
         
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Our Health & Wellness
-            <span className="block text-green-700 mt-2">Solutions</span>
+        <div className="text-center md:mb-20 mt-10 md:mt-16">
+          <div className="inline-block md:mb-4">
+            <span className="text-xs md:text-sm font-semibold text-emerald-600 tracking-wider uppercase">Premium Ayurvedic Collection</span>
+          </div>
+          <h2 className="text-2xl md:text-6xl font-bold text-gray-900 md:mb-6 tracking-tight">
+            Discover Natural Wellness
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-amber-600 mx-auto rounded-full"></div>
-          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
-            Experience the power of Ayurveda with our carefully crafted formulations designed for your holistic wellness
+          <p className="md:mt-4 text-sm md:text-xl text-gray-600 max-w-3xl mx-auto px-6 leading-relaxed mb-5">
+            Handcrafted formulations that blend ancient wisdom with modern science
           </p>
         </div>
 
-        {/* Product Navigation Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="space-y-16">
           {products.map((product, index) => (
-            <button
+            <div 
               key={product.id}
-              onClick={() => setActiveProduct(index)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                activeProduct === index
-                  ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-700 hover:bg-green-50 border-2 border-gray-200'
-              }`}
+              className="group relative"
+              onMouseEnter={() => setHoveredProduct(product.id)}
+              onMouseLeave={() => setHoveredProduct(null)}
             >
-              {product.name}
-            </button>
+              <div className={`relative bg-white rounded-3xl overflow-hidden shadow-xl transition-all duration-500 ${
+                hoveredProduct === product.id ? 'shadow-2xl scale-[1.02]' : ''
+              }`}>
+                
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${product.accent}`}></div>
+                
+                <div className={`grid md:grid-cols-2 gap-0 ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
+                  
+                  <div className={`relative bg-gradient-to-br ${product.accent} p-12 md:p-16 flex items-center justify-center ${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
+                    
+                    <div className="absolute inset-0 opacity-20">
+                      <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
+                      <div className="absolute bottom-10 right-10 w-40 h-40 border-2 border-white rounded-full"></div>
+                    </div>
+                    
+                    <div className="relative z-10 w-full max-w-md">
+                      <div className="relative">
+                        <div className="absolute -inset-4 bg-white/20 rounded-3xl blur-2xl"></div>
+                        <img 
+                          src={product.image}
+                          alt={product.name}
+                          className={`relative w-full h-auto rounded-2xl shadow-2xl object-cover transition-transform duration-500 ${
+                            hoveredProduct === product.id ? 'scale-105 rotate-2' : ''
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className={`p-10 text-center md:text-left md:p-16 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
+                    
+                    <div className="mb-4 md:mb-8">
+                      <div className={`inline-block px-2 md:px-4 py-1 bg-gradient-to-r ${product.accent} text-white text-[9px] md:text-xs font-semibold rounded-full md:mb-4 mb-2`}>
+                        Premium Quality
+                      </div>
+                      <h3 className="text-2xl md:text-5xl font-bold text-gray-900 mb-1 md:mb-3 leading-tight">
+                        {product.name}
+                      </h3>
+                      <p className="text-sm md:text-2xl text-gray-500 font-light italic">
+                        {product.tagline}
+                      </p>
+                    </div>
+
+                    <p className="text-gray-600 leading-relaxed mb-10 text-sm md:text-lg">
+                      {product.description}
+                    </p>
+
+                    <div className="mb-10">
+                      <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-5 flex items-center gap-2">
+                        <span className={`w-8 h-0.5 bg-gradient-to-r ${product.accent}`}></span>
+                        Key Benefits
+                      </h4>
+                      <div className="grid grid-cols-2 gap-4">
+                        {product.benefits.map((benefit, idx) => (
+                          <div key={idx} className="flex items-start gap-3 group/item">
+                            <span className="text-sm md:text-3xl transform transition-transform group-hover/item:scale-110">{benefit.icon}</span>
+                            <span className="text-gray-700 text-xs md:text-sm font-medium leading-tight pt-1">{benefit.text}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br text-left from-gray-50 to-gray-100 rounded-2xl p-6 mb-8 border border-gray-200">
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-start gap-3">
+                          <span className="text-gray-400 mt-0.5">—</span>
+                          <span className="text-gray-700 font-medium">{product.details}</span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <span className="text-gray-400 mt-0.5">—</span>
+                          <span className="text-gray-700"><span className="font-semibold">Dosage:</span> {product.dosage}</span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <span className="text-gray-400 mt-0.5">—</span>
+                          <span className="text-gray-700"><span className="font-semibold">Caution:</span> {product.caution}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-row gap-4">
+                      <button className={`group/btn relative flex-1 bg-gradient-to-r ${product.accent} text-white px-3 py-1 md:px-8 md:py-4 rounded-full md:font-semibold overflow-hidden transition-all duration-300 hover:shadow-xl`}>
+                        <span className="relative z-10">Add to Cart</span>
+                        <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity"></div>
+                      </button>
+                      <button className="flex-1 border-2 border-gray-900 text-gray-900 px-3 py-1 md:px-8 md:py-4 rounded-full md:font-semibold hover:bg-gray-900 hover:text-white transition-all duration-300">
+                        Learn More
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-
-        {/* Active Product Display */}
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-0">
-            
-            {/* Left Side - Product Image/Visual */}
-            <div className={`bg-gradient-to-br ${products[activeProduct].gradient} p-12 flex items-center justify-center relative overflow-hidden`}>
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full"></div>
-                <div className="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white rounded-full"></div>
-              </div>
-              
-              <div className="relative z-10 text-center">
-                <div className="w-48 h-48 md:w-64 md:h-64 bg-white rounded-full shadow-2xl flex items-center justify-center mb-6 mx-auto">
-                  <div className="text-6xl md:text-7xl">
-                    {activeProduct === 0 ? '💊' : activeProduct === 1 ? '🏃' : '🌿'}
-                  </div>
+        <div className="mt-10 md:mt-24 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-green-500 rounded-3xl opacity-5"></div>
+          <div className="relative grid grid-cols-4 md:grid-cols-4 gap-8 p-8">
+            {[
+              { icon: "✓", label: "GMP Certified" },
+              { icon: "🌿", label: "100% Natural" },
+              { icon: "🔬", label: "ISO Certified" },
+              { icon: "🚫", label: "No Chemicals" }
+            ].map((item, idx) => (
+              <div key={idx} className="text-center group cursor-pointer">
+                <div className="inline-flex items-center justify-center w-8 h-8 md:w-16 md:h-16 bg-white rounded-full shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-sm md:text-3xl">{item.icon}</span>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                  {products[activeProduct].name}
-                </h3>
-                <p className="text-xl text-white/90 font-medium">
-                  {products[activeProduct].tagline}
-                </p>
+                <p className="text-xs md:text-sm md:font-semibold text-gray-800">{item.label}</p>
               </div>
-            </div>
-
-            {/* Right Side - Product Details */}
-            <div className="p-8 md:p-12">
-              
-              {/* Description */}
-              <p className="text-gray-700 leading-relaxed mb-8">
-                {products[activeProduct].description}
-              </p>
-
-              {/* Benefits */}
-              <div className="mb-8">
-                <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                  <span className="w-1 h-6 bg-green-600 mr-3 rounded"></span>
-                  Key Benefits
-                </h4>
-                <div className="space-y-3">
-                  {products[activeProduct].benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-center bg-green-50 p-3 rounded-lg border border-green-100">
-                      <span className="text-2xl mr-3">{benefit.icon}</span>
-                      <span className="text-gray-700 font-medium">{benefit.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Product Info */}
-              <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 mb-6">
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <span className="text-amber-700 font-semibold mr-2">📦</span>
-                    <span className="text-gray-700">{products[activeProduct].details}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-amber-700 font-semibold mr-2">💊</span>
-                    <span className="text-gray-700"><strong>Dosage:</strong> {products[activeProduct].dosage}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-amber-700 font-semibold mr-2">⚠️</span>
-                    <span className="text-gray-700"><strong>Caution:</strong> {products[activeProduct].caution}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Certification Badge */}
-              <div className="bg-gradient-to-r from-green-600 to-green-700 text-white p-4 rounded-lg text-center mb-6">
-                <p className="font-semibold text-sm">
-                  {products[activeProduct].certification}
-                </p>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-4 rounded-lg font-bold hover:from-green-700 hover:to-green-800 transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Add to Cart
-                </button>
-                <button className="flex-1 bg-white border-2 border-green-600 text-green-700 px-6 py-4 rounded-lg font-bold hover:bg-green-50 transition-all duration-200">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-xl shadow-md text-center border border-green-100">
-            <div className="text-3xl mb-2">✓</div>
-            <p className="text-sm font-semibold text-gray-800">GMP Certified</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md text-center border border-green-100">
-            <div className="text-3xl mb-2">🌿</div>
-            <p className="text-sm font-semibold text-gray-800">100% Natural</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md text-center border border-green-100">
-            <div className="text-3xl mb-2">🔬</div>
-            <p className="text-sm font-semibold text-gray-800">ISO Certified</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md text-center border border-green-100">
-            <div className="text-3xl mb-2">🚫</div>
-            <p className="text-sm font-semibold text-gray-800">No Chemicals</p>
+            ))}
           </div>
         </div>
       </div>
