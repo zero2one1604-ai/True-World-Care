@@ -21,7 +21,9 @@ export default function ProductsSection() {
       dosage: "As directed by physician",
       caution: "Not recommended during pregnancy",
       image: "/image/products/true.webp",
-      accent: "from-emerald-500 to-teal-600"
+      accent: "from-emerald-500 to-teal-600",
+      mrp: 4190,
+      salePrice: 2095
     },
     {
       id: 2,
@@ -38,7 +40,9 @@ export default function ProductsSection() {
       dosage: "As directed by physician",
       caution: "Not recommended during pregnancy",
       image: "/image/products/shapela.webp",
-      accent: "from-amber-500 to-orange-600"
+      accent: "from-amber-500 to-orange-600",
+      mrp: 4190,
+      salePrice: 2095
     },
     {
       id: 3,
@@ -54,7 +58,9 @@ export default function ProductsSection() {
       dosage: "As directed by physician",
       caution: "Not recommended during pregnancy",
       image: "/image/products/easy.webp",
-      accent: "from-green-500 to-emerald-600"
+      accent: "from-green-500 to-emerald-600",
+      mrp: 2500,
+      salePrice: 1250
     }
   ];
 
@@ -167,9 +173,19 @@ export default function ProductsSection() {
                       </div>
                     </div>
 
+                    <div className="mb-6">
+                      <div className="flex items-center gap-4">
+                        <span className="text-2xl md:text-4xl font-bold text-gray-900">₹{product.salePrice}</span>
+                        <span className="text-lg md:text-xl text-gray-400 line-through">₹{product.mrp}</span>
+                        <span className="px-3 py-1 bg-green-100 text-green-700 text-xs md:text-sm font-semibold rounded-full">
+                          Save {Math.round(((product.mrp - product.salePrice) / product.mrp) * 100)}%
+                        </span>
+                      </div>
+                    </div>
+
                     <div className="flex flex-row gap-4">
                       <button className={`group/btn relative flex-1 bg-gradient-to-r ${product.accent} text-white px-3 py-1 md:px-8 md:py-4 rounded-full md:font-semibold overflow-hidden transition-all duration-300 hover:shadow-xl`}>
-                        <span className="relative z-10">Add to Cart</span>
+                        <span className="relative z-10">Buy Now</span>
                         <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity"></div>
                       </button>
                       <button className="flex-1 border-2 border-gray-900 text-gray-900 px-3 py-1 md:px-8 md:py-4 rounded-full md:font-semibold hover:bg-gray-900 hover:text-white transition-all duration-300">
