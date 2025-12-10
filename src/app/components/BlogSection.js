@@ -88,8 +88,8 @@ export default function BlogSection () {
   ]
 
   return (
-    <section className='py-16 bg-gradient-to-b from-white via-amber-50 to-white'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+    <section className=' bg-gradient-to-b from-white via-amber-50 to-white'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16'>
         <div className='text-center mb-12'>
           <div className='inline-block bg-green-100 text-green-700 px-2 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm md:font-semibold mb-4'>
             Wellness & Lifestyle
@@ -250,14 +250,13 @@ export default function BlogSection () {
           ))}
         </div>
 
-        {/* Newsletter CTA */}
         <div className='mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl shadow-2xl overflow-hidden'>
           <div className='grid md:grid-cols-2 gap-0'>
             <div className='p-8 md:p-12'>
-              <h3 className='text-3xl font-bold text-white mb-4'>
+              <h3 className='md:text-left text-center text-lg md:text-3xl font-bold text-white mb-4'>
                 Stay Updated with Our Wellness Tips
               </h3>
-              <p className='text-green-50 mb-6'>
+              <p className='md:text-base text-sm md:text-left text-center text-green-50 mb-6'>
                 Join thousands of health enthusiasts receiving weekly insights,
                 expert advice, and exclusive content straight to your inbox.
               </p>
@@ -273,7 +272,7 @@ export default function BlogSection () {
                 </button>
               </div>
 
-              <p className='text-green-100 text-xs mt-4'>
+              <p className='text-green-100 md:text-left text-center text-xs mt-4'>
                 ✓ No spam, unsubscribe anytime | ✓ Weekly wellness tips | ✓
                 Exclusive offers
               </p>
