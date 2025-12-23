@@ -35,7 +35,7 @@ export default function Navbar() {
             </a>
             
             <div className="relative">
-              <Link href="#products">
+              <Link href="/shop">
               <button
                 className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-200 flex items-center"
               >
@@ -45,14 +45,12 @@ export default function Navbar() {
               
             </div>
 
-            <a href="/about" className="text-gray-700 hidden hover:text-green-700 font-medium transition-colors duration-200">
-              About Us
-            </a>
-            <a href="#blog" className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-200">
+
+            <a href="/blog" className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-200">
               Blog
             </a>
-            <a href="#footer" className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-200">
-              Contact
+            <a href="/about_us" className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-200">
+              About Us
             </a>
           </div>
 
@@ -98,11 +96,11 @@ export default function Navbar() {
             </div>
 
         
-            <a href="#blog" className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-lg transition-colors">
+            <a href="/blog" className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-lg transition-colors">
               Blog
             </a>
-            <a href="#footer" className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-lg transition-colors">
-              Contact
+            <a href="/about_us" className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-lg transition-colors">
+              About Us
             </a>
             
             <div className="pt-4 space-y-3">

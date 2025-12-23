@@ -1,348 +1,50 @@
-'use client'
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
+import { blogs } from '../data/blogs';
 
-import Image from 'next/image'
-import { CheckCircle } from 'lucide-react'
-import { useState } from 'react'
-
-export default function BlogSection () {
-  const [hoveredCard, setHoveredCard] = useState(null)
-   const [email, setEmail] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(null)
-
-  const blogs = [
-    {
-      id: 1,
-      title: 'The Potential of Habits: How Small Habits Lead to Big Changes',
-      excerpt:
-        'Discover how tiny daily actions compound into remarkable transformations. Learn the science behind habit formation and unlock your potential for lasting change.',
-      category: 'Lifestyle',
-      readTime: '5 min read',
-      icon: '🎯',
-      gradient: 'from-green-500 to-emerald-600',
-      image:
-        'https://images.unsplash.com/photo-1644412447181-7f9f80ee3889?q=80&w=1470&auto=format&fit=crop',
-      tags: ['Habits', 'Self-Improvement', 'Wellness']
-    },
-    {
-      id: 2,
-      title: 'From Stress to Strength: Emotional Eating and How to Heal It',
-      excerpt:
-        'Explore the deep connection between emotions and eating patterns. Practical strategies to break free from emotional eating and build a healthier relationship with food.',
-      category: 'Mental Health',
-      readTime: '7 min read',
-      icon: '💪',
-      gradient: 'from-amber-500 to-orange-600',
-      image:
-        'https://images.unsplash.com/photo-1625937286074-9ca519d5d9df?q=80&w=1632&auto=format&fit=crop',
-      tags: ['Emotional Health', 'Nutrition', 'Mindfulness']
-    },
-    {
-      id: 3,
-      title: "Morning vs. Evening Workouts: What's Best for Your Body?",
-      excerpt:
-        'Uncover the science behind workout timing and how it affects your performance, energy levels, and results. Find your perfect fitness schedule.',
-      category: 'Fitness',
-      readTime: '6 min read',
-      icon: '⏰',
-      gradient: 'from-blue-500 to-indigo-600',
-      image:
-        'https://images.unsplash.com/photo-1761839256602-0e28a5ab928d?q=80&w=1470&auto=format&fit=crop',
-      tags: ['Exercise', 'Fitness', 'Health']
-    },
-    {
-      id: 4,
-      title: 'Metabolism Myths: What Really Boosts Your Burn?',
-      excerpt:
-        'Separate fact from fiction in the world of metabolism. Evidence-based insights on what truly accelerates your metabolic rate and supports weight management.',
-      category: 'Nutrition',
-      readTime: '8 min read',
-      icon: '🔥',
-      gradient: 'from-red-500 to-pink-600',
-      image:
-        'https://plus.unsplash.com/premium_photo-1664910894862-0f193af0fd3c?q=80&w=1470&auto=format&fit=crop',
-      tags: ['Metabolism', 'Weight Loss', 'Science']
-    },
-    {
-      id: 5,
-      title: 'Gut Health & Weight Loss: The Surprising Connection',
-      excerpt:
-        'Explore the fascinating gut-brain axis and how your microbiome influences weight, cravings, and overall health. Transform your wellness from the inside out.',
-      category: 'Health',
-      readTime: '9 min read',
-      icon: '🦠',
-      gradient: 'from-teal-500 to-cyan-600',
-      image:
-        'https://images.unsplash.com/photo-1522844990619-4951c40f7eda?q=80&w=1470&auto=format&fit=crop',
-      tags: ['Gut Health', 'Digestion', 'Weight Loss']
-    },
-    {
-      id: 6,
-      title: 'Cravings Decoded: What Your Body Is Really Asking For',
-      excerpt:
-        "Break down sugar, salt, and fat cravings with actionable tips. Learn to understand your body's signals and make nourishing choices that satisfy both body and mind.",
-      category: 'Nutrition',
-      readTime: '6 min read',
-      icon: '🍎',
-      gradient: 'from-green-600 to-lime-600',
-      image:
-        'https://images.unsplash.com/photo-1708737840329-0d192a01ab1a?q=80&w=1470&auto=format&fit=crop',
-      tags: ['Cravings', 'Nutrition', 'Wellness']
-    }
-  ]
-
-  const handleSubmit = async () => {
-    if (!email || !email.includes('@')) {
-      setError('Please enter a valid email.')
-      return
-    }
-
-    setError(null)
-    setLoading(true)
-
-    try {
-      // 🔗 Replace this with your real API / Supabase insert later
-      await new Promise(resolve => setTimeout(resolve, 1200))
-
-      setSuccess(true)
-    } catch (err) {
-      setError('Something went wrong. Try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
+export default function BlogSection() {
+  const latestBlogs = blogs.slice(0, 3);
 
   return (
-    <section className=' bg-gradient-to-b from-white via-amber-50 to-white' id='blog'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16'>
-        <div className='text-center mb-12'>
-          <div className='inline-block bg-green-100 text-green-700 px-2 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm md:font-semibold mb-4'>
-            Wellness & Lifestyle
+    <section className="py-20 bg-white" id="blog">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div className="max-w-2xl">
+            <span className="text-emerald-600 font-bold tracking-widest uppercase text-xs">Our Journal</span>
+            <h2 className="text-3xl md:text-5xl font-light text-slate-900 mt-2">Insights for a <span className="italic font-serif">Balanced</span> Life</h2>
           </div>
-          <h2 className='text-2xl md:text-5xl font-bold text-gray-800 mb-4'>
-            Your Journey to
-            <span className='block text-green-700 md:mt-2'>
-              Better Health Starts Here
-            </span>
-          </h2>
-          <div className='w-24 h-1 bg-gradient-to-r from-green-600 to-amber-600 mx-auto rounded-full mb-6'></div>
-          <p className='text-sm md:text-lg text-gray-600 max-w-3xl mx-auto'>
-            Explore expert insights, evidence-based tips, and inspiring stories
-            to transform your wellness journey
-          </p>
+          <Link href="/blog" className="group flex items-center gap-2 text-slate-900 font-semibold border-b-2 border-emerald-500 pb-1 hover:text-emerald-600 transition-colors">
+            View All Articles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
-        <div className='mb-12'>
-          <div
-            className='bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer'
-            onMouseEnter={() => setHoveredCard(0)}
-            onMouseLeave={() => setHoveredCard(null)}
-          >
-           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0">
-
-  <div className="relative w-full h-64 md:h-auto">
-    <Image
-      src={blogs[0].image}
-      alt={blogs[0].title}
-      fill
-      className="object-cover"
-      sizes="(max-width: 768px) 100vw, 50vw"
-      priority
-    />
-  </div>
-
-  <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
-    
-    <div className="flex items-center gap-3 mb-3">
-      <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">
-        {blogs[0].category}
-      </span>
-      <span className="text-gray-500 text-sm flex items-center">
-        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        {blogs[0].readTime}
-      </span>
-    </div>
-
-    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 hover:text-green-700 transition-colors">
-      {blogs[0].title}
-    </h3>
-
-    <p className="text-gray-600 leading-relaxed mb-5 text-sm sm:text-base">
-      {blogs[0].excerpt}
-    </p>
-
-    <div className="flex flex-wrap gap-2 mb-6">
-      {blogs[0].tags.map((tag, index) => (
-        <span key={index} className="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
-          {tag}
-        </span>
-      ))}
-    </div>
-
-    <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-5 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-200 shadow-md hover:shadow-lg flex items-center w-max group text-sm sm:text-base">
-      Read Full Article
-      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
-    </button>
-
-  </div>
-</div>
-
-          </div>
-        </div>
-
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {blogs.slice(1).map((blog, index) => (
-            <div
-              key={blog.id}
-              className='bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2'
-              onMouseEnter={() => setHoveredCard(blog.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-          
-          <Image
-              src={blog.image}
-              alt={blog.title}
-              height={300}
-              width={500}
-              className='w-full h-48 object-cover'
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            />
-
-              <div className='p-6'>
-                <div className='flex items-center justify-between mb-3'>
-                  <span className='bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-semibold'>
+        <div className="grid md:grid-cols-3 gap-8">
+          {latestBlogs.map((blog) => (
+            <Link href={`/blog/${blog.slug}`} key={blog.id} className="group">
+              <div className="relative h-64 mb-6 overflow-hidden rounded-2xl">
+                <Image 
+                  src={blog.image} 
+                  alt={blog.title} 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-white/90 backdrop-blur-sm text-slate-900 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-tight">
                     {blog.category}
                   </span>
-                  <span className='text-gray-500 text-xs flex items-center'>
-                    <svg
-                      className='w-3 h-3 mr-1'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                    >
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth={2}
-                        d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
-                      />
-                    </svg>
-                    {blog.readTime}
-                  </span>
                 </div>
-
-                <h3 className='text-xl font-bold text-gray-800 mb-3 hover:text-green-700 transition-colors line-clamp-2'>
-                  {blog.title}
-                </h3>
-
-                <p className='text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3'>
-                  {blog.excerpt}
-                </p>
-
-                <div className='flex flex-wrap gap-2 mb-4'>
-                  {blog.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className='text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full'
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <button className='w-full bg-green-50 text-green-700 px-4 py-2 rounded-lg font-semibold hover:bg-green-100 transition-all duration-200 flex items-center justify-center group'>
-                  Read More
-                  <svg
-                    className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M9 5l7 7-7 7'
-                    />
-                  </svg>
-                </button>
               </div>
-            </div>
+              <h3 className="text-xl font-medium text-slate-900 leading-tight group-hover:text-emerald-700 transition-colors">
+                {blog.title}
+              </h3>
+              <p className="text-slate-500 mt-3 text-sm line-clamp-2 font-light">
+                {blog.excerpt}
+              </p>
+            </Link>
           ))}
         </div>
-
-         <div className='mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl shadow-2xl overflow-hidden'>
-      <div className='grid md:grid-cols-2 gap-0'>
-        <div className='p-8 md:p-12'>
-
-          {!success ? (
-            <>
-              <h3 className='md:text-left text-center text-lg md:text-3xl font-bold text-white mb-4'>
-                Stay Updated with Our Wellness Tips
-              </h3>
-
-              <p className='md:text-base text-sm md:text-left text-center text-green-50 mb-6'>
-                Join thousands of health enthusiasts receiving weekly insights,
-                expert advice, and exclusive content straight to your inbox.
-              </p>
-
-              <div className='flex flex-col sm:flex-row gap-3'>
-                <input
-                  type='email'
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder='Enter your email'
-                  disabled={loading}
-                  className='flex-1 px-4 py-3 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white disabled:opacity-70'
-                />
-
-                <button
-                  onClick={handleSubmit}
-                  disabled={loading}
-                  className='bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-all duration-200 shadow-md whitespace-nowrap disabled:opacity-70'
-                >
-                  {loading ? 'Subscribing…' : 'Subscribe Now'}
-                </button>
-              </div>
-
-              {error && (
-                <p className='text-red-200 text-xs mt-3'>{error}</p>
-              )}
-
-              <p className='text-green-100 md:text-left text-center text-xs mt-4'>
-                ✓ No spam, unsubscribe anytime | ✓ Weekly wellness tips | ✓ Exclusive offers
-              </p>
-            </>
-          ) : (
-            // ✅ SUCCESS UI
-            <div className='flex flex-col items-center md:items-start text-center md:text-left'>
-              <div className='w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6'>
-                <CheckCircle className='w-8 h-8 text-green-600' />
-              </div>
-
-              <h3 className='text-2xl md:text-3xl font-bold text-white mb-3'>
-                You are in 🎉
-              </h3>
-
-              <p className='text-green-100 max-w-md'>
-                Thanks for subscribing. You will now receive curated wellness
-                insights and exclusive updates directly in your inbox.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className='hidden md:flex items-center justify-center p-12 bg-white/10'>
-          <div className='text-9xl'>📧</div>
-        </div>
-      </div>
-    </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,11 +1,11 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { products } from '@/data/products';
+import { products } from "../../data/products.js";
 
 export default function ProductsSection() {
   return (
-    <section className="bg-slate-50/50 py-8 md:py-12 px-4 overflow-hidden" id='products'>
+    <section className="py-8 md:py-12 px-4 overflow-hidden" id='products'>
       <div className="max-w-7xl mx-auto">
         
        <div className="max-w-4xl mx-auto px-4 py-8 md:py-20 text-center">
@@ -34,23 +34,23 @@ export default function ProductsSection() {
   </div>
 </div>
 
- <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+ <div className="grid gap-4 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {products.map(product => (
             <Link
               key={product.id}
-              href={`/products/${product.slug}`}
-              className="group bg-slate-50 rounded-3xl p-6 border border-slate-100 hover:border-emerald-200 transition-all"
+              href={`/shop/${product.slug}`}
+              className="group bg-slate-50 rounded-3xl p-6 border border-emerald-400 hover:border-emerald-200 transition-all"
             >
-              <div className="relative h-56 mb-6">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+      <div className="relative w-full aspect-[3/4] mb-6 overflow-hidden rounded-2xl bg-white">
+    <Image
+      src={product.image}
+      alt={product.name}
+      fill
+      className="object-cover group-hover:scale-105 transition-transform duration-500"
+      sizes="(max-width: 768px) 100vw, 33vw"
+    />
+  </div>
 
-              {/* Info */}
               <h3 className="text-xl font-black text-slate-900 mb-1">
                 {product.name}
               </h3>
@@ -58,7 +58,6 @@ export default function ProductsSection() {
                 {product.tagline}
               </p>
 
-              {/* Price */}
               <div className="flex items-center gap-2">
                 <span className="text-2xl font-black text-slate-900">
                   ₹{product.salePrice}
@@ -68,14 +67,13 @@ export default function ProductsSection() {
                 </span>
               </div>
 
-              {/* CTA */}
               <div className="mt-5 inline-block text-xs font-black uppercase tracking-widest text-emerald-600">
                 View Details →
               </div>
             </Link>
           ))}
         </div>
-<div className="mt-20 pt-10 border-t border-slate-50">
+<div className="md:mt-10 pt-10 border-t border-slate-50">
   <div className="grid grid-cols-4 gap-4">
     {[
       { label: "GMP", icon: "💎" },
