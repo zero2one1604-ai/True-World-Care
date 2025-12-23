@@ -4,6 +4,13 @@ import { products } from "../../data/products";
 
 const phoneNumber = "919211231761";
 
+// This tells Next.js to pre-render these specific paths at build time
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = products.find(p => p.slug === slug);

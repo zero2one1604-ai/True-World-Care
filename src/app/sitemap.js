@@ -1,10 +1,9 @@
-import { products } from "@/data/products";
-import { blogs } from "@/data/blogs";
+import { products } from "./data/products";
+import { blogs } from "./data/blogs";
 
 export default function sitemap() {
   const baseUrl = "https://thetrueworldcare.com";
 
-  // 1. Static Pages
   const staticPages = [
     {
       url: `${baseUrl}/`,

@@ -4,6 +4,12 @@ import Link from 'next/link';
 import { blogs } from '../../data/blogs';
 import { ArrowLeft, Clock, Calendar, Share2 } from 'lucide-react';
 
+export async function generateStaticParams() {
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const blog = blogs.find(b => b.slug === slug);
