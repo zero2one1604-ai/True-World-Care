@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL("https://thetrueworldcare.com"),
   title: {
-    default: "Trueworld Care | Daily Wellness for Real Progress",
+    default: "The Trueworld Care | Daily Wellness for Real Progress",
     template: "%s | Trueworld Care",
   },
   description:
@@ -37,10 +37,10 @@ export const metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://thetrueworldcare.com",
-    title: "Trueworld Care | Feel Lighter, Stronger, Every Day",
+    title: "The Trueworld Care | Feel Lighter, Stronger, Every Day",
     description:
       "Thoughtfully formulated capsules and herbal blends for sustainable weight loss and metabolism support. Real progress you can feel.",
-    siteName: "Trueworld Care",
+    siteName: "The Trueworld Care",
     images: [
       {
         url: "/image/banner.png",
@@ -52,7 +52,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Trueworld Care | Ayurveda Meets Fitness",
+    title: "The Trueworld Care | Ayurveda Meets Fitness",
     description:
       "Daily wellness support for metabolism, energy and detox — without shortcuts.",
     images: ["/image/banner.png"],
