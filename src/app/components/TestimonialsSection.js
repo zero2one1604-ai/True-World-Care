@@ -106,6 +106,15 @@ export default function TestimonialsSection() {
     setActiveTestimonial(index);
   };
 
+  const handleReview = (e) => {
+ e.preventDefault();
+    const phoneNumber = "919211231761";
+    const message = "Here is my review for Trueworld Care products: [Please write your review here]";
+    
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-white via-green-50 to-amber-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -245,7 +254,7 @@ export default function TestimonialsSection() {
 
         <div className="mt-10 md:mt-12 text-center">
           <p className="text-gray-600 mb-4">Want to share your success story?</p>
-          <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto">
+          <button onClick={handleReview} className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto">
             Write Your Review
           </button>
         </div>

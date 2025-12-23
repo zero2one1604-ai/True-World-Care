@@ -18,7 +18,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-amber-50 via-green-50 to-white">
+    <footer className="bg-gradient-to-b from-amber-50 via-green-50 to-white" id='footer'>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-10 gap-x-8">
@@ -71,23 +71,23 @@ export default function Footer() {
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 Home
               </a></li>
-              <li><a href="/about" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
+              <li><a href="/about" className="text-gray-700 hidden hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 About Us
               </a></li>
-              <li><a href="/products" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
+              <li><a href="#products" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 Our Products
               </a></li>
-              <li><a href="/blog" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
+              <li><a href="#blog" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 Blog
               </a></li>
-              <li><a href="/testimonials" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
+              <li><a href="/testimonials" className="hidden text-gray-700 hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 Testimonials
               </a></li>
-              <li><a href="/contact" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
+              <li><a href="#footer" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 Contact Us
               </a></li>
@@ -99,15 +99,15 @@ export default function Footer() {
               Our Products
             </h3>
             <ul className="grid grid-cols-3 md:block text-sm md:text-base">
-              <li><a href="/products/true-vita" className="text-gray-700 hover:text-amber-700 transition-colors flex items-center group">
+              <li><a href="#products" className="text-gray-700 hover:text-amber-700 transition-colors flex items-center group">
                 <span className="mr-2 text-amber-600 group-hover:translate-x-1 transition-transform">›</span>
                 True Vita Capsules
               </a></li>
-              <li><a href="/products/shapella" className="text-gray-700 hover:text-amber-700 transition-colors flex items-center group">
+              <li><a href="#products" className="text-gray-700 hover:text-amber-700 transition-colors flex items-center group">
                 <span className="mr-2 text-amber-600 group-hover:translate-x-1 transition-transform">›</span>
                 SHAPELLA Capsule
               </a></li>
-              <li><a href="/products/easy-fresh" className="text-gray-700 hover:text-amber-700 transition-colors flex items-center group">
+              <li><a href="#products" className="text-gray-700 hover:text-amber-700 transition-colors flex items-center group">
                 <span className="mr-2 text-amber-600 group-hover:translate-x-1 transition-transform">›</span>
                 EASY FRESH Powder
               </a></li>

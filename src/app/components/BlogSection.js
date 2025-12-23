@@ -1,10 +1,15 @@
 'use client'
 
 import Image from 'next/image'
+import { CheckCircle } from 'lucide-react'
 import { useState } from 'react'
 
 export default function BlogSection () {
   const [hoveredCard, setHoveredCard] = useState(null)
+   const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(null)
 
   const blogs = [
     {
@@ -17,7 +22,7 @@ export default function BlogSection () {
       icon: '🎯',
       gradient: 'from-green-500 to-emerald-600',
       image:
-        'https://plus.unsplash.com/premium_photo-1669590487094-c01dfc2ee939?q=80&w=715&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1644412447181-7f9f80ee3889?q=80&w=1470&auto=format&fit=crop',
       tags: ['Habits', 'Self-Improvement', 'Wellness']
     },
     {
@@ -30,7 +35,7 @@ export default function BlogSection () {
       icon: '💪',
       gradient: 'from-amber-500 to-orange-600',
       image:
-        'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=687&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1625937286074-9ca519d5d9df?q=80&w=1632&auto=format&fit=crop',
       tags: ['Emotional Health', 'Nutrition', 'Mindfulness']
     },
     {
@@ -56,7 +61,7 @@ export default function BlogSection () {
       icon: '🔥',
       gradient: 'from-red-500 to-pink-600',
       image:
-        'https://images.unsplash.com/photo-1764957080878-3f9866270aad?q=80&w=687&auto=format&fit=crop',
+        'https://plus.unsplash.com/premium_photo-1664910894862-0f193af0fd3c?q=80&w=1470&auto=format&fit=crop',
       tags: ['Metabolism', 'Weight Loss', 'Science']
     },
     {
@@ -69,7 +74,7 @@ export default function BlogSection () {
       icon: '🦠',
       gradient: 'from-teal-500 to-cyan-600',
       image:
-        'https://plus.unsplash.com/premium_photo-1686054306703-fe68a1b0a7aa?q=80&w=726&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1522844990619-4951c40f7eda?q=80&w=1470&auto=format&fit=crop',
       tags: ['Gut Health', 'Digestion', 'Weight Loss']
     },
     {
@@ -82,13 +87,34 @@ export default function BlogSection () {
       icon: '🍎',
       gradient: 'from-green-600 to-lime-600',
       image:
-        'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=687&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1708737840329-0d192a01ab1a?q=80&w=1470&auto=format&fit=crop',
       tags: ['Cravings', 'Nutrition', 'Wellness']
     }
   ]
 
+  const handleSubmit = async () => {
+    if (!email || !email.includes('@')) {
+      setError('Please enter a valid email.')
+      return
+    }
+
+    setError(null)
+    setLoading(true)
+
+    try {
+      // 🔗 Replace this with your real API / Supabase insert later
+      await new Promise(resolve => setTimeout(resolve, 1200))
+
+      setSuccess(true)
+    } catch (err) {
+      setError('Something went wrong. Try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
-    <section className=' bg-gradient-to-b from-white via-amber-50 to-white'>
+    <section className=' bg-gradient-to-b from-white via-amber-50 to-white' id='blog'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16'>
         <div className='text-center mb-12'>
           <div className='inline-block bg-green-100 text-green-700 px-2 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm md:font-semibold mb-4'>
@@ -250,12 +276,16 @@ export default function BlogSection () {
           ))}
         </div>
 
-        <div className='mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl shadow-2xl overflow-hidden'>
-          <div className='grid md:grid-cols-2 gap-0'>
-            <div className='p-8 md:p-12'>
+         <div className='mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl shadow-2xl overflow-hidden'>
+      <div className='grid md:grid-cols-2 gap-0'>
+        <div className='p-8 md:p-12'>
+
+          {!success ? (
+            <>
               <h3 className='md:text-left text-center text-lg md:text-3xl font-bold text-white mb-4'>
                 Stay Updated with Our Wellness Tips
               </h3>
+
               <p className='md:text-base text-sm md:text-left text-center text-green-50 mb-6'>
                 Join thousands of health enthusiasts receiving weekly insights,
                 expert advice, and exclusive content straight to your inbox.
@@ -264,25 +294,54 @@ export default function BlogSection () {
               <div className='flex flex-col sm:flex-row gap-3'>
                 <input
                   type='email'
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                   placeholder='Enter your email'
-                  className='flex-1 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white'
+                  disabled={loading}
+                  className='flex-1 px-4 py-3 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white disabled:opacity-70'
                 />
-                <button className='bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-all duration-200 shadow-md whitespace-nowrap'>
-                  Subscribe Now
+
+                <button
+                  onClick={handleSubmit}
+                  disabled={loading}
+                  className='bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-all duration-200 shadow-md whitespace-nowrap disabled:opacity-70'
+                >
+                  {loading ? 'Subscribing…' : 'Subscribe Now'}
                 </button>
               </div>
 
+              {error && (
+                <p className='text-red-200 text-xs mt-3'>{error}</p>
+              )}
+
               <p className='text-green-100 md:text-left text-center text-xs mt-4'>
-                ✓ No spam, unsubscribe anytime | ✓ Weekly wellness tips | ✓
-                Exclusive offers
+                ✓ No spam, unsubscribe anytime | ✓ Weekly wellness tips | ✓ Exclusive offers
+              </p>
+            </>
+          ) : (
+            // ✅ SUCCESS UI
+            <div className='flex flex-col items-center md:items-start text-center md:text-left'>
+              <div className='w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6'>
+                <CheckCircle className='w-8 h-8 text-green-600' />
+              </div>
+
+              <h3 className='text-2xl md:text-3xl font-bold text-white mb-3'>
+                You are in 🎉
+              </h3>
+
+              <p className='text-green-100 max-w-md'>
+                Thanks for subscribing. You will now receive curated wellness
+                insights and exclusive updates directly in your inbox.
               </p>
             </div>
-
-            <div className='hidden md:flex items-center justify-center p-12 bg-white/10'>
-              <div className='text-9xl'>📧</div>
-            </div>
-          </div>
+          )}
         </div>
+
+        <div className='hidden md:flex items-center justify-center p-12 bg-white/10'>
+          <div className='text-9xl'>📧</div>
+        </div>
+      </div>
+    </div>
       </div>
     </section>
   )
