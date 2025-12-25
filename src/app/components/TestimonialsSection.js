@@ -116,21 +116,26 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-white via-green-50 to-amber-50">
+    <section className="py-2 md:py-16 bg-gradient-to-b from-white via-green-50 to-amber-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-block bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-xs md:text-sm md:font-semibold mb-4">
-            ⭐ Customer Stories
+          <div className="inline-block text-emerald-600 font-bold tracking-[0.25em] uppercase text-[8px] md:text-xs bg-emerald-50 px-4 py-1.5 rounded-full">
+             Customer Stories
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-xl mt-2 sm:text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.1] tracking-tighter mb-2 md:mb-8">
             Real Results from
             <span className="block text-green-700 md:mt-2">Real People</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-amber-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-sm md:text-lg text-gray-600 max-w-3xl mx-auto">
+      
+          <p className="text-xs md:text-lg text-gray-600 max-w-3xl mx-auto">
             Join thousands of satisfied customers who have transformed their health with Trueworld Care
           </p>
+           <div className="mt-4 md:mt-12 flex justify-center gap-1.5">
+    <div className="w-1 h-1 rounded-full bg-emerald-200"></div>
+    <div className="w-8 h-1 rounded-full bg-emerald-500"></div>
+    <div className="w-1 h-1 rounded-full bg-emerald-200"></div>
+  </div>
         </div>
 
         <div className="relative">
@@ -148,7 +153,7 @@ export default function TestimonialsSection() {
                 <div className="relative z-10 w-full flex flex-col items-center">
                   
                   <div className="flex flex-row items-center justify-center gap-5 mb-4 md:mb-8">
-                    {/* Image */}
+          
                     <div className="w-16 h-16 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center text-2xl md:text-3xl font-bold text-green-700 shadow-2xl shrink-0">
                       {testimonials[activeTestimonial].image}
                     </div>

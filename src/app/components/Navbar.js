@@ -84,7 +84,7 @@ export default function Navbar() {
             </a>
             
             <div>
-              <Link href="#products">
+              <Link href="/shop">
               <button
                 className="w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-lg transition-colors flex justify-between items-center"
               >
