@@ -18,8 +18,8 @@ export default function AboutPage() {
     {
       icon: <Mail className="md:w-5 w-3 h-3 md:h-5" />,
       label: 'Email Support',
-      value: 'support@thetrueworldcare.com',
-      href: 'mailto:support@thetrueworldcare.com',
+      value: 'thetrueworldc@gmail.com',
+      href: 'mailto:thetrueworldc@gmail.com',
     },
     {
       icon: <MessageCircle className="md:w-5 w-3 h-3 md:h-5" />,
