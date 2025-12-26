@@ -102,6 +102,9 @@ export default function Navbar() {
             <a href="/blog" className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-lg transition-colors">
               Blog
             </a>
+            <a href="/testimonials" className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-lg transition-colors">
+              Testimonials
+            </a>
             <a href="/about_us" className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-lg transition-colors">
               About Us
             </a>
