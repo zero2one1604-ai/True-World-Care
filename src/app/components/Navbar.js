@@ -49,6 +49,9 @@ export default function Navbar() {
             <a href="/blog" className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-200">
               Blog
             </a>
+              <a href="/testimonials" className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-200">
+              Testimonials
+            </a>
             <a href="/about_us" className="text-gray-700 hover:text-green-700 font-medium transition-colors duration-200">
               About Us
             </a>

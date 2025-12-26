@@ -23,6 +23,12 @@ export default function sitemap() {
       changeFrequency: "daily",
       priority: 0.8,
     },
+     {
+      url: `${baseUrl}/testimonials`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
     {
       url: `${baseUrl}/about_us`,
       lastModified: new Date(),
@@ -31,7 +37,6 @@ export default function sitemap() {
     },
   ];
 
-  // 2. Dynamic Product Pages
   const productPages = products.map((product) => ({
     url: `${baseUrl}/shop/${product.slug}`,
     lastModified: new Date(),

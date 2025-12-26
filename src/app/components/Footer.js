@@ -54,17 +54,24 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="grid grid-cols-3 md:block text-sm md:text-base">
-              <li><a href="/" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
+              <li>
+                <a href="/" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 Home
-              </a></li>
-              <li><a href="/about_us" className="text-gray-700 hidden hover:text-green-600 transition-colors flex items-center group">
+              </a>
+              </li>
+              <li>
+                <a href="/about_us" className="text-gray-700 hidden hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 About Us
               </a></li>
               <li><a href="/shop" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
                 Our Products
+              </a></li>
+               <li><a href="/testimonials" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
+                <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>
+                Testimonials
               </a></li>
               <li><a href="/blog" className="text-gray-700 hover:text-green-600 transition-colors flex items-center group">
                 <span className="mr-2 text-green-600 group-hover:translate-x-1 transition-transform">›</span>

@@ -103,8 +103,7 @@ export default function Home() {
   </div>
     </div>
 
-    {/* Videos */}
-    <div className="grid md:grid-cols-3 grid-cols-2 gap-2 md:gap-12">
+    <div className="grid md:grid-cols-4 grid-cols-2 gap-2 md:gap-12">
       <VideoCard
         src="/videos/1.mp4"
         poster="/one.png"
@@ -122,38 +121,7 @@ export default function Home() {
         src="/videos/4.mp4"
         poster="/four.png"
        />
-       <VideoCard
-        src="/videos/5.mp4"
-        poster="/five.png"
-       />
-       <VideoCard
-        src="/videos/6.mp4"
-        poster="/six.png"
-       />
-       <VideoCard
-        src="/videos/7.mp4"
-        poster="/seven.png"
-       />
-       <VideoCard
-        src="/videos/8.mp4"
-        poster="/eight.png"
-       />
-       <VideoCard
-        src="/videos/9.mp4"
-        poster="/nine.png"
-       />
-       <VideoCard
-        src="/videos/10.mp4"
-        poster="/ten.png"
-       />
-       <VideoCard
-        src="/videos/11.mp4"
-        poster="/eleven.png"
-       />
-       <VideoCard
-        src="/videos/12.mp4"
-        poster="/twelve.png"
-       />
+      
     </div>
   </div>
 </section>
